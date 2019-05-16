@@ -34,18 +34,25 @@ Load packages and data
 
 ```{r, warning=F, message=F}
 library(tidyverse)
-library(ggthemes)
-library(ggplot2)
 library(nycflights13)
 
 data("flights", package = "nycflights13")
-data("weather", package = "nycflights13")
 ```
 
 
 ## Question 1. Subsetting data 1
 
-Explain what does this code do on the `flights` data? 
+The `flights` data is the data that we will be using for this exam. So it is important for us to know what these columns represent: 
+
+  1. `dep_delay`, the departure delay for each flight, in minutes
+  1. `arr_delay`, the arrival delay for each flight, in minutes
+  1. `carrier`, the airline carrier of each flight. Due to Question 1, we only have `AA` and `VX` in this column. 
+  1. `origin`, the origin of each flight. Since only New York flights were considered, this column only contains value `JFK`, `LGA`, `EWR`. 
+  1. `dest`, the destination of each flight. It only has a three-letters airport abbreviation for each flight. 
+  1. There are other columns in this data, but we will throw them away in Question 2
+
+
++ Explain what does this code do on the `flights` data? 
 
 **Hint**: the code `AA` stands for "American Airline" and `VX` stands for "Virgin American Airline". 
 
@@ -60,15 +67,6 @@ selected_flights = flights %>%
 ## Question 2: Subsetting data 2
 
 Subset `selected_flights` to only have the columns `dep_delay`, `arr_delay`, `carrier`, `origin` and `dest`. Save this new data as an object called `small_flights`. 
-
-This is the data that we will be using for the rest of this exam. So it is important for us to know what these columns represent: 
-
-  1. `dep_delay`, the departure delay for each flight, in minutes
-  1. `arr_delay`, the arrival delay for each flight, in minutes
-  1. `carrier`, the airline carrier of each flight. Due to Question 1, we only have `AA` and `VX` in this column. 
-  1. `origin`, the origin of each flight. Since only New York flights were considered, this column only contains value `JFK`, `LGA`, `EWR`. 
-  1. `dest`, the destination of each flight. It only has a three-letters airport abbreviation for each flight. 
-
 
 ```{r}
 # Add your code below
@@ -94,7 +92,7 @@ There are three airports in the city of New York. These are coded as the `origin
   + `LGA` (LaGuardia Airport)
   + `EWR` (Newark Liberty International Airport) 
   
-  In R, calculate the number of flights from each of these airports by **each** of these `carrier`. (i.e. construct a 2-by-2 `table` or a summary `data.frame`). Which one of the three airports does Virgin America Airline NOT operating from?
+  In R, calculate the number of flights from each of these airports by **each** of these `carrier`. (i.e. construct a 3-by-2 `table` or a summary `data.frame`). Which one of the three airports does Virgin America Airline NOT operating from?
   
   
 
